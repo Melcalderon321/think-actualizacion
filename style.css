@@ -1295,103 +1295,294 @@ ul, ol {
 
 /* Footer Section */
 .site-footer {
-  background-color: #111115;
+  background-color: #090b14;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66zm0 2L56 84L56 100L28 100L0 100L0 84L28 68z' fill='none' stroke='%2300c3a6' stroke-width='1' stroke-opacity='0.05'/%3E%3C/svg%3E");
   color: #a5a5b0;
-  padding: 80px 0 30px;
+  padding: 100px 0 40px;
   font-family: var(--font-primary);
+  position: relative;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1fr 0.8fr 1.2fr;
-  gap: 50px;
-  margin-bottom: 60px;
+  grid-template-columns: 35% 25% 40%;
+  gap: 60px;
+  margin-bottom: 80px;
 }
 
 .footer-col {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
-.footer-logo img {
-  height: 45px;
-  margin-bottom: 10px;
+.footer-logo img.footer-logo-img {
+  height: 48px;
+  width: auto;
+  margin: 0;
+  filter: brightness(0) invert(1);
 }
 
-.footer-desc {
-  font-size: 0.9rem;
-  line-height: 1.6;
+.footer-tagline {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #a5a5b0;
+  margin: 0;
+  max-width: 320px;
 }
 
-.footer-title {
+/* Footer Columns Title styling */
+.footer-col-title {
   font-family: var(--font-secondary);
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--color-bg-white);
-  position: relative;
-  padding-bottom: 10px;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  margin: 0 0 4px 0;
+  text-transform: uppercase;
 }
 
-.footer-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40px;
-  height: 2px;
-  background-color: var(--color-primary);
-}
-
-.footer-links {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.footer-link {
-  font-size: 0.9rem;
-}
-
-.footer-link a:hover {
-  color: var(--color-primary);
-  padding-left: 5px;
-}
-
-.footer-hours-list {
+/* Footer Vertical Lists styling */
+.footer-nav-list, .footer-whatsapp-links, .footer-contact-list {
   display: flex;
   flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav-list li, .footer-whatsapp-link-item, .footer-contact-item {
+  border-bottom: none;
+}
+
+.footer-nav-list a, .footer-whatsapp-link-item a, .footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  font-size: 0.95rem;
+  color: #a5a5b0;
+  transition: all var(--transition-fast);
+}
+
+.footer-contact-item {
+  align-items: flex-start;
+  color: #a5a5b0;
+}
+
+/* List Icons styling */
+.footer-nav-list a i, .footer-whatsapp-link-item a i.wa-icon-style, .footer-contact-item i {
+  font-size: 0.85rem;
+  color: #00c3a6;
+  width: 20px;
+  text-align: center;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.footer-whatsapp-link-item a i.wa-icon-style {
+  font-size: 1.25rem;
+}
+
+.footer-contact-item i {
+  font-size: 1.05rem;
+  margin-top: 3px;
+}
+
+.footer-contact-item a {
+  color: #a5a5b0;
+  transition: color var(--transition-fast);
+}
+
+/* Hover Actions */
+.footer-nav-list a:hover, .footer-whatsapp-link-item a:hover, .footer-contact-item a:hover {
+  color: #ffffff;
+  padding-left: 6px;
+}
+
+.footer-nav-list a:hover i {
+  transform: translateX(4px);
+  color: #ffffff;
+}
+
+.footer-whatsapp-link-item a:hover i.wa-icon-style {
+  transform: scale(1.15);
+  color: #25d366; /* Changes to WhatsApp green on hover */
+}
+
+.footer-contact-item a:hover {
+  color: #ffffff;
+}
+
+/* Columna 2: WhatsApp Specifics */
+.footer-whatsapp-subtitle {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #a5a5b0;
+  margin: -12px 0 20px 0;
+}
+
+.wa-link-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wa-link-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  transition: color var(--transition-fast);
+}
+
+.footer-whatsapp-link-item a:hover .wa-link-title {
+  color: #00c3a6;
+}
+
+.wa-link-desc {
+  font-size: 0.8rem;
+  color: #8e8e9a;
+}
+
+/* Columna 3: Ubicación y Mapa */
+.footer-map-wrapper {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--box-shadow-sm);
+  margin-bottom: 8px;
+}
+
+.footer-hours-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-hours-title {
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #00c3a6;
+  letter-spacing: 1px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.footer-hours-detail {
+  display: flex;
+  align-items: center;
   gap: 10px;
   font-size: 0.9rem;
-}
-
-.footer-hours-item {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding-bottom: 8px;
-}
-
-.footer-hours-day {
-  font-weight: 700;
   color: #dcdce3;
 }
 
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.85rem;
-  flex-wrap: wrap;
-  gap: 15px;
+.footer-hours-detail i {
+  color: #00c3a6;
+  font-size: 1.05rem;
 }
 
-@media (max-width: 992px) {
+/* Footer Bottom */
+.footer-bottom {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  color: #8e8e9a;
+}
+
+.footer-socials-label {
+  font-family: var(--font-secondary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #a5a5b0;
+  letter-spacing: 1px;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social-icons .social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a5a5b0;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.footer-social-icons .social-icon:hover {
+  background-color: #00c3a6;
+  color: #ffffff;
+  border-color: #00c3a6;
+  transform: translateY(-2px);
+}
+
+.footer-bottom-copyright {
+  color: #8e8e9a;
+}
+
+.footer-bottom-credits {
+  color: #8e8e9a;
+}
+
+.footer-bottom-credits a {
+  color: #00c3a6;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.footer-bottom-credits a:hover {
+  color: #ffffff;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .footer-col-map {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 60px 0 30px;
+  }
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+  .footer-col-map {
+    grid-column: span 1;
+  }
+  .footer-container {
+    padding: 0 20px;
   }
 }
 
@@ -1718,7 +1909,7 @@ ul, ol {
   position: absolute;
   bottom: 80px;
   right: 0;
-  width: 360px;
+  width: 440px;
   background-color: var(--color-bg-white);
   border-radius: var(--border-radius-md);
   box-shadow: var(--box-shadow-lg);
@@ -1739,22 +1930,22 @@ ul, ol {
 .whatsapp-chat-header {
   background-color: #1E5D57; /* Deep green-teal matching screenshot */
   color: var(--color-bg-white);
-  padding: 18px 22px;
+  padding: 24px 28px;
   display: flex;
-  gap: 15px;
+  gap: 18px;
   align-items: center;
 }
 
 .whatsapp-avatar {
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background-color: #00cc8b; /* Bright WhatsApp brand green */
   color: var(--color-bg-white);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.7rem;
+  font-size: 2rem;
   border: 1.5px solid rgba(255, 255, 255, 0.5); /* Thin white border around green circle */
   flex-shrink: 0;
   box-sizing: border-box;
@@ -1763,7 +1954,7 @@ ul, ol {
 .whatsapp-status-name {
   font-family: var(--font-primary);
   font-weight: 700;
-  font-size: 1.15rem; /* Bold, slightly larger title */
+  font-size: 1.35rem;
   line-height: 1.2;
   color: #ffffff;
   letter-spacing: -0.2px;
@@ -1771,10 +1962,10 @@ ul, ol {
 
 .whatsapp-status-text {
   font-family: var(--font-primary);
-  font-size: 0.82rem; /* Clean subtext */
+  font-size: 0.95rem;
   color: #e0e0e0;
   opacity: 0.95;
-  margin-top: 3px;
+  margin-top: 4px;
 }
 
 /* Multi-routing options styles */
@@ -1787,8 +1978,8 @@ ul, ol {
 .wa-routing-item {
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 16px 20px;
+  gap: 20px;
+  padding: 20px 28px;
   border-bottom: 1px solid #f0f2f5;
   transition: background-color var(--transition-fast);
 }
@@ -1802,8 +1993,8 @@ ul, ol {
 }
 
 .wa-routing-icon {
-  width: 46px;
-  height: 46px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
   background-color: #e2f7eb; /* Light mint/green background */
   display: flex;
@@ -1881,18 +2072,18 @@ ul, ol {
 .wa-routing-title {
   font-family: var(--font-primary);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   color: var(--color-dark);
 }
 
 .wa-routing-desc {
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   color: var(--color-gray-medium);
 }
 
 .wa-routing-chevron {
   color: #ccd0d5;
-  font-size: 0.82rem;
+  font-size: 1rem;
   transition: transform var(--transition-fast);
 }
 
